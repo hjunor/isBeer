@@ -68,7 +68,7 @@ function FormLiters() {
         />
       </div>
 
-      <h2>{!!result.qtd ? `${result.qtd} unidades` : "..."}</h2>
+      <h2>{!!result.qtd ? `${result.qtd} unidades - rf` : "..."}</h2>
       <h2>{!!result.priceTotal ? `R$ ${result.priceTotal}` : "..."}</h2>
       <button
         disabled={!(!!price && !!value && !!volume && !!title)}
