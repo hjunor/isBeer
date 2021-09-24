@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.container .card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.container .card .cardList {
+  border: 1px solid red;
+  margin: 2rem;
+}
+.container .form {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
