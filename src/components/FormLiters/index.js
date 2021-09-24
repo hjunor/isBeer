@@ -15,6 +15,7 @@ function FormLiters() {
     const result = arrayLiters(price, value, volume);
     setResult(result);
   }, [volume, price, value]);
+
   function handleClick() {
     setLiters([
       ...liters,
