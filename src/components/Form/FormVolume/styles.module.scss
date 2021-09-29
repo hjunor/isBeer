@@ -1,0 +1,32 @@
+.form {
+  display: flex;
+  width: 100vw;
+  flex-direction: column;
+  margin: 0;
+}
+
+.input:first-child {
+  margin-top: 4rem;
+}
+.input {
+  margin: 0 auto;
+  width: 60%;
+  margin-bottom: 1rem;
+
+  @media (max-width: 420px) {
+    width: 80%;
+  }
+}
+
+.wrapper__button {
+  width: 6rem;
+  height: 3rem;
+  color: var(--gray-50);
+  background: var(--gray-800);
+  margin: 0 auto;
+  border-radius: 0.5rem;
+  &:hover {
+    color: var(--bg);
+    background: rgb(194, 181, 3);
+  }
+}

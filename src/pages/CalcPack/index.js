@@ -2,7 +2,7 @@ import { useContext } from "react";
 import "./styles.css";
 import { StoreContext } from "../../context/storeContext";
 import Beer from "../../components/Beer";
-import { FormPacks } from "../../components/FormPack";
+import { FormPacks } from "../../components/Form/FormPack";
 export const CalcPacks = () => {
   const { packs, handleDeletePacks } = useContext(StoreContext);
   return (

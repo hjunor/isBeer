@@ -1,9 +1,11 @@
-import { arrayBeer } from "../../utils/isBeer";
+import { arrayBeer } from "../../../utils/isBeer";
 import { useEffect, useState, useContext } from "react";
-import { StoreContext } from "../../context/storeContext";
 import { v4 as uuid } from "uuid";
-import "./styles.css";
-import { formatAmount } from "../../utils/formatAmount";
+import styles from "./styles.module.scss";
+import { formatAmount } from "../../../utils/formatAmount";
+import { Input } from "../../UI/Input";
+import { StoreContext } from "../../../context/storeContext";
+
 function FormVolume() {
   const [title, setTitle] = useState("");
   const [volume, setVolume] = useState(0);
@@ -30,50 +32,38 @@ function FormVolume() {
     ]);
   }
   return (
-    <div className="form">
-      <div className="input">
-        <label htmlFor="">grana que eu tenho</label>
-        <input
-          placeholder=" "
-          onChange={({ target }) => setPrice(target.value)}
+    <div className={styles.form}>
+      <div className={styles.input}>
+        <Input
+          label="Grana que tenho"
           type="text"
+          value={price}
+          setValue={setPrice}
         />
       </div>
-      <div className="input">
-        <label htmlFor="">preço</label>
-
-        <input
-          placeholder=""
-          onChange={({ target }) => setValue(target.value)}
+      <div className={styles.input}>
+        <Input label="Preço" type="text" value={value} setValue={setValue} />
+      </div>
+      <div className={styles.input}>
+        <Input
+          label="Volume (ML)"
           type="text"
+          value={volume}
+          setValue={setVolume}
         />
       </div>
-      <div className="input">
-        <label htmlFor="">quantidade de ml</label>
-
-        <input
-          placeholder=""
-          onChange={({ target }) => setVolume(target.value)}
-          type="text"
-        />
-      </div>
-      <div className="input">
-        <label htmlFor=""> Cerveja</label>
-
-        <input
-          placeholder=""
-          onChange={({ target }) => setTitle(target.value)}
-          type="text"
-        />
+      <div className={styles.input}>
+        <Input label="Cerveja" type="text" value={title} setValue={setTitle} />
       </div>
 
-      <h2>{!!result.volume ? `${result.volume} ML` : "..."}</h2>
       <button
+        className={styles.wrapper__button}
         disabled={!(!!price && !!value && !!volume && !!title)}
         onClick={handleClick}
       >
-        add
+        + Comparar
       </button>
+      <h2>{!!result.volume ? `${result.volume} ML` : "..."}</h2>
     </div>
   );
 }

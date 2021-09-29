@@ -1,0 +1,59 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  height: 3rem;
+}
+.label {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+  left: 0.65rem;
+  padding: 0.25rem 0.5rem;
+  pointer-events: none;
+  transition: all 0.35s;
+}
+.isValue {
+  position: absolute;
+  top: 50%;
+  color: #888;
+  left: 0.65rem;
+  padding: 0.25rem 0.5rem;
+  pointer-events: none;
+  transition: all 0.35s;
+  background: #16141b;
+  color: var(--yellow);
+  transform: translateY(-2rem);
+}
+svg {
+  top: 50%;
+  right: 0.5em;
+  position: absolute;
+  transform: translateY(-50%);
+  font-size: 1.675rem;
+  color: #888;
+  transition: all 0.35s;
+}
+input {
+  height: 3rem;
+  width: 100%;
+  border: 2px solid #888;
+  border-radius: 0.5em;
+  outline: none;
+  background: transparent;
+  color: #f7f7f7;
+  font-size: 1rem;
+  text-indent: 1rem;
+  transition: all 0.35s;
+}
+input:focus {
+  border-color: var(--yellow);
+}
+input:focus ~ svg {
+  fill: var(--yellow);
+}
+input:focus ~ .label {
+  background: #16141b;
+  color: var(--yellow);
+  transform: translateY(-2rem);
+}

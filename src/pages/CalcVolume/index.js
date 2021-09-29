@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import "./styles.css";
 import { StoreContext } from "../../context/storeContext";
-import FormVolume from "../../components/FormVolume";
 import Beer from "../../components/Beer";
+import FormVolume from "../../components/Form/FormVolume";
 export const CalcVolume = () => {
   const { beers, handleDeleteBeer } = useContext(StoreContext);
   console.log(beers);

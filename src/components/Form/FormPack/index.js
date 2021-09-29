@@ -1,9 +1,9 @@
-import { arrayPacks } from "../../utils/isPacks";
 import { useEffect, useState, useContext } from "react";
-import { StoreContext } from "../../context/storeContext";
 import { v4 as uuid } from "uuid";
 import "./styles.css";
-import { formatAmount } from "../../utils/formatAmount";
+import { StoreContext } from "../../../context/storeContext";
+import { formatAmount } from "../../../utils/formatAmount";
+import { arrayPacks } from "../../../utils/isPacks";
 export function FormPacks() {
   const [title, setTitle] = useState("");
   const [volume, setVolume] = useState(0);

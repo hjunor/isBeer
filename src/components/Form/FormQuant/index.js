@@ -1,31 +1,29 @@
 import { useEffect, useState, useContext } from "react";
-import { StoreContext } from "../../context/storeContext";
 import { v4 as uuid } from "uuid";
 import "./styles.css";
-import { arrayLiters } from "../../utils/isLiters";
-import { formatAmount } from "../../utils/formatAmount";
-function FormLiters() {
+import { arrayQuant } from "../../../utils/isQuant";
+import { StoreContext } from "../../../context/storeContext";
+function FormQuant() {
   const [title, setTitle] = useState("");
   const [volume, setVolume] = useState(0);
   const [price, setPrice] = useState(0);
   const [value, setValue] = useState(0);
   const [result, setResult] = useState([]);
-  const { liters, setLiters } = useContext(StoreContext);
+  const { setQuant, quant } = useContext(StoreContext);
   useEffect(() => {
-    const result = arrayLiters(price, value, volume);
+    const result = arrayQuant(price, value, volume);
     setResult(result);
   }, [volume, price, value]);
-
   function handleClick() {
-    setLiters([
-      ...liters,
+    setQuant([
+      ...quant,
       {
         id: uuid(),
-        totalVolume: result.volume,
+        totalVolume: result.priceTotal,
         qtd: result.qtd,
         volume,
-        price: formatAmount(price),
-        value: value,
+        price,
+        value,
         title,
       },
     ]);
@@ -33,24 +31,24 @@ function FormLiters() {
   return (
     <div className="form">
       <div className="input">
-        <label htmlFor="">preço</label>
+        <label htmlFor="">quantidade UND</label>
         <input
           placeholder=" "
+          onChange={({ target }) => setValue(target.value)}
+          type="text"
+        />
+      </div>
+      <div className="input">
+        <label htmlFor="">preço</label>
+
+        <input
+          placeholder=""
           onChange={({ target }) => setPrice(target.value)}
           type="text"
         />
       </div>
       <div className="input">
         <label htmlFor="">quantidade de ml</label>
-
-        <input
-          placeholder=""
-          onChange={({ target }) => setValue(target.value)}
-          type="text"
-        />
-      </div>
-      <div className="input">
-        <label htmlFor="">quantidade total de litro</label>
 
         <input
           placeholder=""
@@ -68,8 +66,7 @@ function FormLiters() {
         />
       </div>
 
-      <h2>{!!result.qtd ? `${result.qtd} unidades - rf` : "..."}</h2>
-      <h2>{!!result.priceTotal ? `R$ ${result.priceTotal}` : "..."}</h2>
+      <h2>{!!result.qtd ? `${result.qtd} ML` : "..."}</h2>
       <button
         disabled={!(!!price && !!value && !!volume && !!title)}
         onClick={handleClick}
@@ -80,4 +77,4 @@ function FormLiters() {
   );
 }
 
-export default FormLiters;
+export default FormQuant;
