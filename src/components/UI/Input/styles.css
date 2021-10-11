@@ -25,7 +25,7 @@
   color: var(--yellow);
   transform: translateY(-2rem);
 }
-svg {
+.icon svg {
   top: 50%;
   right: 0.5em;
   position: absolute;
@@ -34,6 +34,7 @@ svg {
   color: #888;
   transition: all 0.35s;
 }
+
 input {
   height: 3rem;
   width: 100%;

@@ -8,13 +8,14 @@ export const Storage = ({ children }) => {
   const [liters, setLiters] = useState([]);
   const [quant, setQuant] = useState([]);
   const [packs, setPacks] = useState([]);
+  const [isActiveMenu, setIsActiveMenu] = useState(false);
 
   function handleDeletePacks(id) {
     const filterPacks = packs.filter((item) => {
       return item.id !== id;
     });
 
-    setBeers(filterPacks);
+    setPacks(filterPacks);
   }
 
   function handleDeleteBeer(id) {
@@ -53,6 +54,8 @@ export const Storage = ({ children }) => {
         setQuant,
         packs,
         setPacks,
+        isActiveMenu,
+        setIsActiveMenu,
       }}
     >
       {children}

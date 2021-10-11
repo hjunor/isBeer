@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import Beer from "../../components/Beer";
+import CardLitres from "../../components/Cards/Litrers";
 import FormLiters from "../../components/Form/FormLiters";
 import { StoreContext } from "../../context/storeContext";
 
@@ -10,14 +10,12 @@ export default function CalcLiters() {
       <div className="form">
         <FormLiters />
       </div>
-      <div className="card">
-        {liters &&
-          liters
-            .sort((a, b) => b.totalVolume - a.totalVolume)
-            .map((item) => (
-              <Beer key={item.id} {...item} handle={handleDeleteLiters} />
-            ))}
-      </div>
+      {liters &&
+        liters
+          .sort((a, b) => b.qtd - a.qtd)
+          .map((item) => (
+            <CardLitres key={item.id} {...item} handle={handleDeleteLiters} />
+          ))}
     </div>
   );
 }

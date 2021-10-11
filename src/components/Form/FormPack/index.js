@@ -1,9 +1,11 @@
 import { useEffect, useState, useContext } from "react";
 import { v4 as uuid } from "uuid";
-import "./styles.css";
+import styles from "./styles.module.scss";
+
 import { StoreContext } from "../../../context/storeContext";
 import { formatAmount } from "../../../utils/formatAmount";
 import { arrayPacks } from "../../../utils/isPacks";
+import { Input } from "../../UI/Input";
 export function FormPacks() {
   const [title, setTitle] = useState("");
   const [volume, setVolume] = useState(0);
@@ -31,49 +33,40 @@ export function FormPacks() {
     ]);
   }
   return (
-    <div className="form">
-      <div className="input">
-        <label htmlFor="">valor do pack</label>
-        <input
-          placeholder=" "
-          onChange={({ target }) => setPrice(target.value)}
+    <div className={styles.form}>
+      <div className={styles.input}>
+        <Input
+          label="Valor do Pack"
           type="text"
+          value={price}
+          setValue={setPrice}
         />
       </div>
-      <div className="input">
-        <label htmlFor="">quantidade no pack</label>
-
-        <input
-          placeholder=""
-          onChange={({ target }) => setValue(target.value)}
+      <div className={styles.input}>
+        <Input
+          label="Quantidade Pack"
           type="text"
+          value={value}
+          setValue={setValue}
         />
       </div>
-      <div className="input">
-        <label htmlFor="">quantidade de ml por un</label>
-
-        <input
-          placeholder=""
-          onChange={({ target }) => setVolume(target.value)}
+      <div className={styles.input}>
+        <Input
+          label="ML por Unidade"
           type="text"
+          setValue={setVolume}
+          value={volume}
         />
       </div>
-      <div className="input">
-        <label htmlFor=""> Cerveja</label>
-
-        <input
-          placeholder=""
-          onChange={({ target }) => setTitle(target.value)}
-          type="text"
-        />
+      <div className={styles.input}>
+        <Input label="Cerveja" type="text" setValue={setTitle} value={title} />
       </div>
-
-      <h2>{!!result.priceTotal ? `${result.priceTotal} ML` : "..."}</h2>
       <button
+        className={styles.wrapper__button}
         disabled={!(!!price && !!value && !!volume && !!title)}
         onClick={handleClick}
       >
-        add
+        + Comparar
       </button>
     </div>
   );

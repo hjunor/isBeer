@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import "./styles.css";
 import { StoreContext } from "../../context/storeContext";
-import Beer from "../../components/Beer";
 import FormQuant from "../../components/Form/FormQuant";
+import CardQuant from "../../components/Cards/Quant";
 export const CalcQuant = () => {
   const { quant, handleDeleteQuant } = useContext(StoreContext);
 
@@ -14,9 +14,9 @@ export const CalcQuant = () => {
       <div className="card">
         {quant &&
           quant
-            .sort((a, b) => b.totalVolume - a.totalVolume)
+            .reverse()
             .map((item) => (
-              <Beer key={item.id} {...item} handle={handleDeleteQuant} />
+              <CardQuant key={item.id} {...item} handle={handleDeleteQuant} />
             ))}
       </div>
     </div>

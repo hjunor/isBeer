@@ -10,9 +10,20 @@
   }
 }
 
+.color_path {
+  color: var(--yellow);
+}
 .nav {
   display: flex;
   width: 100%;
+}
+.menu_nav {
+  background-color: transparent;
+  display: none;
+  @media (max-width: 420px) {
+    display: flex;
+    margin-left: auto;
+  }
 }
 
 .ul__list {
@@ -28,7 +39,7 @@
   }
   a {
     text-decoration: none;
-    color: var(--gray-100);
+
     transition: ease 0.7s;
     &:hover {
       color: var(--text-fill);

@@ -63,7 +63,6 @@ function FormVolume() {
       >
         + Comparar
       </button>
-      <h2>{!!result.volume ? `${result.volume} ML` : "..."}</h2>
     </div>
   );
 }
