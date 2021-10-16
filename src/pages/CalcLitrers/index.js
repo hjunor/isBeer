@@ -7,7 +7,7 @@ export default function CalcLiters() {
   const { liters, handleDeleteLiters } = useContext(StoreContext);
   return (
     <div className="container">
-      <div className="form">
+      <div className="form ">
         <FormLiters />
       </div>
       {liters &&
